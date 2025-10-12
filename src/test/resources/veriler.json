@@ -1,0 +1,24 @@
+{
+  "successLogin": {
+    "email": "emreekiz3455@gmail.com",
+    "password": "asdfghj"
+  },
+  "WrongPasswordCorrectEmail": {
+    "email": "emreekiz3455@gmail.com",
+    "password": "123456789"
+  },
+  "WrongEmail": {
+    "email": "emreekizekiz11@gmail.com",
+    "password": "123456789"
+  },
+  "SuccessfulRegister": {
+    "email": "emreekiz1909@gmail.com",
+    "password": "emreekiz123",
+    "confirmPassword": "emreekiz123"
+  },
+  "WrongRetypePassword": {
+    "email": "denememaili101@gmail.com",
+    "password": "123456789",
+    "confirmPassword": "12345678910"
+  }
+}

@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/Features"},
         glue = {"StepDefinitions","Util"},
-        tags = "",
+        tags = "@WrongRetypePassword",
         plugin = {
                 "summary","pretty","html:Reports/CucumberReport/Reports.html"
         }

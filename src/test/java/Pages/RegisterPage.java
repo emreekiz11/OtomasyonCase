@@ -11,69 +11,68 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-public class LoginPage {
+public class RegisterPage {
     WebDriver driver;
     ElementHelper elementHelper;
     WebDriverWait wait;
 
-    public LoginPage(WebDriver driver){
+    public RegisterPage(WebDriver driver){
         this.driver = driver;
         this.elementHelper = new ElementHelper(driver);
     }
 
-    By loginButton = By.cssSelector("a[class='nav-link login']");
-    By emailInput = By.id("floatingInput");
-    By passwordButton = By.cssSelector("#floatingPassword");
+    By registerButton = By.cssSelector(".nav-link.login.register");
+    By registerInput = By.cssSelector("#floatingInput");
+    By passwordButton = By.xpath("//div[2]//input[1]");
+    By confirmPasswordButton = By.xpath("//div[3]//input[1]");
+    By register = By.cssSelector("button[type='submit']");
     By login = By.cssSelector("button[type='submit']");
-    By logoutButton = By.cssSelector(".nav-link.login.register");
-    By logout = By.cssSelector(".nav-link.login.register");
 
-    public void HomePage() {
-        
+
+
+    public void clickRegisterButton() {
+        elementHelper.click(registerButton);
     }
 
-    public void ClickLoginButton() {
-        elementHelper.click(loginButton);
+    public void clickTheEmailAddressInputField() {
+        elementHelper.click(registerInput);
     }
 
-    public void clickEmailAddress() {
-        elementHelper.click(emailInput);
+    public void enterTheEmailAddress(String email) {
+        elementHelper.sendKey(registerInput,email);
     }
 
-    public void writeTheEmailAddress(String email) {
-        elementHelper.sendKey(emailInput,email);
-    }
-
-    public void clickpassword() {
+    public void clickThePasswordInputField() {
         elementHelper.click(passwordButton);
     }
 
-    public void writePassword(String password) {
-        elementHelper.sendKey(passwordButton, password);
+    public void enterThePassword(String password) {
+        elementHelper.sendKey(passwordButton,password);
+
     }
 
-    public void clickLoginToQtripButton() {
-        elementHelper.click(login);
+    public void clickTheConfirmPasswordInputField() {
+        elementHelper.click(confirmPasswordButton);
     }
 
-    public void checkSuccessfulLogin() {
-        elementHelper.presenceElement(logoutButton);
+    public void enterTheConfirmPassword(String confirmPassword) {
+        elementHelper.sendKey(confirmPasswordButton,confirmPassword);
     }
 
-    public void clickLogoutButton() {
-        elementHelper.click(logout);
+    public void clickRegisterToQtripButton() {
+        elementHelper.click(register);
     }
 
-    public void checkSuccessfulLogout() {
-        elementHelper.presenceElement(loginButton);
+    public void checkSuccessfulRegister() {
+        elementHelper.presenceElement(login);
     }
 
-    public void verifyErrorMessage() {
+    public void verifyErrorMessageForRegister() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             Alert alert = wait.until(ExpectedConditions.alertIsPresent());
             String alertText = alert.getText();
-            Assert.assertEquals(alertText, "Failed - Password is incorrect");
+            Assert.assertEquals(alertText, "Failed - Email already exists");
             alert.accept();
         } catch (NoAlertPresentException e) {
             System.out.println("Hata: Alert bekleniyor ama gelmedi.");
@@ -81,12 +80,12 @@ public class LoginPage {
         }
     }
 
-    public void verifyErrorMessageForWrongEmail() {
+    public void verifyErrorMessageForRetypePassword() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             Alert alert = wait.until(ExpectedConditions.alertIsPresent());
             String alertText = alert.getText();
-            Assert.assertEquals(alertText, "Failed - email does not exist");
+            Assert.assertEquals(alertText, "Password and confirm Password do not match");
             alert.accept();
         } catch (NoAlertPresentException e) {
             System.out.println("Hata: Alert bekleniyor ama gelmedi.");

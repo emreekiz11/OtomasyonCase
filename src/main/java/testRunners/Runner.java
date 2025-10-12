@@ -5,9 +5,9 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/Features"},
         glue = {"StepDefinitions","Util"},
-        tags = "@WrongRetypePassword",
+        tags = "",
         plugin = {
-                "summary","pretty","html:Reports/CucumberReport/Reports.html"
+                "summary","pretty","html:Reports/CucumberReport/FinalReports.html"
         }
 )
 public class Runner extends AbstractTestNGCucumberTests {

@@ -12,7 +12,7 @@
     "password": "123456789"
   },
   "SuccessfulRegister": {
-    "email": "emreekiz1909@gmail.com",
+    "email": "emreekiz1911@gmail.com",
     "password": "emreekiz123",
     "confirmPassword": "emreekiz123"
   },
@@ -20,5 +20,10 @@
     "email": "denememaili101@gmail.com",
     "password": "123456789",
     "confirmPassword": "12345678910"
+  },
+
+  "Cities": {
+    "city1": "Goa",
+    "city2": "Kolkata"
   }
 }

@@ -32,4 +32,16 @@ public class ElementHelper {
     public void sendKey(By key, String text){
         findElement(key).sendKeys(text);
     }
+
+    public void slowType(WebElement element, String text) {
+        for (char ch : text.toCharArray()) {
+            element.sendKeys(Character.toString(ch));
+            try {
+                Thread.sleep(900);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

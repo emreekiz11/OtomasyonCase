@@ -4,4 +4,4 @@ Bu proje, QTrip adlı web uygulamasının fonksiyonel testlerini otomatikleştir
 ---
 Bağımlılıklar pom.xml dosyası içerisindedir.
 ---
-Maven projede sync edilmedilidir ve proje testNG dosyası içerisinden run edilmelidir.
+Maven projede sync edilmelidir ve proje testNG dosyası içerisinden run edilmelidir.
